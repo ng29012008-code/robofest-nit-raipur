@@ -35,7 +35,7 @@ The visual experience blends deep void backgrounds with electric-blue conduits, 
 
 1. **Navigate to the project directory:**
    ```bash
-   cd /Users/nikhilgoyal/.gemini/antigravity/scratch/robofest-2026
+   cd /Users/nikhilgoyal/.gemini/antigravity/scratch/robofest-nit-raipur
    ```
 
 2. **Install dependencies:**
@@ -105,7 +105,7 @@ The visual experience blends deep void backgrounds with electric-blue conduits, 
 ## ⚙️ How to Update Registration & Social Links
 
 All festival settings are centrally maintained in a single configuration file:
-👉 [`src/config.js`](file:///Users/nikhilgoyal/.gemini/antigravity/scratch/robofest-2026/src/config.js)
+👉 [`src/config.js`](file:///Users/nikhilgoyal/.gemini/antigravity/scratch/robofest-nit-raipur/src/config.js)
 
 ### 1. Replacing the Registration URL
 When the official registration form (Google Form, Unstop, or college portal) goes live:
