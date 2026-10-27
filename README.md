@@ -1,7 +1,9 @@
 # ROBOFEST 2026 — Futuristic Robotics Festival Landing Page
 > **Theme:** NEON FRONTIER — THE FUTURE IS ENGINEERED  
 > **Host Organization:** ROBOTiX Club, National Institute of Technology (NIT) Raipur  
-> **Individual Frontend Development Recruitment Assignment**
+> **Individual Frontend Development Recruitment Assignment**  
+> 
+> 🌐 **Live Website Link:** **[https://robofest2026-nitrr.surge.sh](https://robofest2026-nitrr.surge.sh)**
 
 ---
 
