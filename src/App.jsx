@@ -36,7 +36,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-[#00F0FF]/30 selection:text-[#00F0FF]">
+    <div className="relative min-h-screen bg-[#172338] text-slate-100 flex flex-col font-sans selection:bg-[#00F0FF]/30 selection:text-[#00F0FF]">
       {/* Cyber Cursor Reticle for desktop */}
       <CyberCursor />
 

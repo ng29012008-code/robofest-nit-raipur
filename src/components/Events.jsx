@@ -16,11 +16,11 @@ export default function Events({ onOpenRegisterModal }) {
   return (
     <section 
       id="events" 
-      className="relative py-24 md:py-36 bg-[#0F172A] border-t border-slate-700/50 overflow-hidden"
+      className="relative py-24 md:py-36 bg-[#1A263D]/70 border-t border-slate-600/50 overflow-hidden"
     >
       {/* Background glow effects with higher radiance */}
-      <div className="absolute top-1/4 right-1/4 w-[550px] h-[550px] bg-[#00F0FF]/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-[550px] h-[550px] bg-[#FF6B00]/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 right-1/4 w-[550px] h-[550px] bg-[#00F0FF]/15 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/4 w-[550px] h-[550px] bg-[#FF6B00]/15 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -33,7 +33,7 @@ export default function Events({ onOpenRegisterModal }) {
           className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
         >
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1E293B] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#243553] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
               <span>02 / CHOOSE YOUR BATTLE</span>
             </div>
 
@@ -47,7 +47,7 @@ export default function Events({ onOpenRegisterModal }) {
 
           {/* Illustrative Concept Label Notice */}
           <div className="md:text-right max-w-sm">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#1E293B] border border-slate-700 text-slate-200 font-tech text-xs shadow-md">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#243553] border border-slate-600 text-slate-200 font-tech text-xs shadow-md">
               <ShieldAlert className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
               <span className="font-semibold">PROPOSED FESTIVAL CONCEPTS</span>
             </div>
@@ -83,13 +83,13 @@ export default function Events({ onOpenRegisterModal }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-2xl rounded-2xl bg-[#142037] border border-[#00F0FF]/50 shadow-[0_0_50px_rgba(0,240,255,0.3)] p-6 sm:p-8 overflow-hidden text-left"
+              className="relative w-full max-w-2xl rounded-2xl bg-[#202F4B] border border-[#00F0FF]/50 shadow-[0_0_50px_rgba(0,240,255,0.3)] p-6 sm:p-8 overflow-hidden text-left"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Modal Close Button */}
               <button
                 onClick={handleCloseModal}
-                className="absolute top-5 right-5 p-2 rounded-lg bg-[#1E2D4A] text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-colors"
+                className="absolute top-5 right-5 p-2 rounded-lg bg-[#273B5E] text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 transition-colors"
                 aria-label="Close modal"
               >
                 <X className="w-5 h-5" />
@@ -124,7 +124,7 @@ export default function Events({ onOpenRegisterModal }) {
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {selectedEvent.specifications.map((spec, idx) => (
-                    <div key={idx} className="p-3.5 rounded-lg bg-[#1A2846] border border-slate-700 flex flex-col justify-between">
+                    <div key={idx} className="p-3.5 rounded-lg bg-[#283C61] border border-slate-600 flex flex-col justify-between">
                       <span className="text-[11px] font-tech text-slate-300">{spec.label}</span>
                       <span className="text-sm font-tech font-bold text-white mt-1">{spec.value}</span>
                     </div>

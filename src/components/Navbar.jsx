@@ -35,7 +35,7 @@ export default function Navbar({ onOpenRegisterModal }) {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-[#0F172A]/90 backdrop-blur-md border-b border-slate-700/60 shadow-lg shadow-black/30 py-3.5' 
+          ? 'bg-[#1A263D]/90 backdrop-blur-md border-b border-slate-600/60 shadow-lg shadow-black/20 py-3.5' 
           : 'bg-transparent py-5'
       }`}
     >
@@ -49,7 +49,7 @@ export default function Navbar({ onOpenRegisterModal }) {
             onMouseEnter={() => soundManager.playHover()}
             onClick={() => soundManager.playClick()}
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-lg bg-[#1E293B] border border-[#00F0FF]/40 group-hover:border-[#00F0FF] transition-colors shadow-md">
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-lg bg-[#24344E] border border-[#00F0FF]/40 group-hover:border-[#00F0FF] transition-colors shadow-md">
               <Cpu className="w-5 h-5 text-[#00F0FF] group-hover:scale-110 transition-transform" />
               <div className="absolute inset-0 rounded-lg bg-[#00F0FF]/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
@@ -86,7 +86,7 @@ export default function Navbar({ onOpenRegisterModal }) {
             <button
               onClick={toggleSound}
               type="button"
-              className="p-2 rounded-lg text-slate-300 hover:text-[#00F0FF] bg-[#1E293B]/70 hover:bg-[#1E293B] border border-slate-700/60 transition-colors focus:outline-none focus:ring-1 focus:ring-[#00F0FF]"
+              className="p-2 rounded-lg text-slate-300 hover:text-[#00F0FF] bg-[#24344E]/70 hover:bg-[#24344E] border border-slate-600/60 transition-colors focus:outline-none focus:ring-1 focus:ring-[#00F0FF]"
               title={isMuted ? "Enable Sci-Fi Audio Feedback" : "Mute Audio Feedback"}
               aria-label={isMuted ? "Enable Audio" : "Mute Audio"}
             >
@@ -116,7 +116,7 @@ export default function Navbar({ onOpenRegisterModal }) {
             <button
               onClick={toggleSound}
               type="button"
-              className="p-2 rounded-lg text-slate-300 hover:text-white bg-[#1E293B] border border-slate-700/60"
+              className="p-2 rounded-lg text-slate-300 hover:text-white bg-[#24344E] border border-slate-600/60"
               aria-label="Toggle Sound"
             >
               {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-[#00F0FF]" />}
@@ -128,7 +128,7 @@ export default function Navbar({ onOpenRegisterModal }) {
                 setMobileMenuOpen(!mobileMenuOpen);
               }}
               type="button"
-              className="p-2.5 rounded-lg text-slate-200 hover:text-white bg-[#1E293B] border border-slate-700/60 focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
+              className="p-2.5 rounded-lg text-slate-200 hover:text-white bg-[#24344E] border border-slate-600/60 focus:outline-none focus:ring-2 focus:ring-[#00F0FF]"
               aria-label="Open Navigation Menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -141,7 +141,7 @@ export default function Navbar({ onOpenRegisterModal }) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0F172A]/98 border-b border-slate-700/80 px-4 pt-4 pb-6 mt-3 backdrop-blur-xl animate-fadeIn shadow-2xl">
+        <div className="md:hidden bg-[#1A263D]/98 border-b border-slate-600/80 px-4 pt-4 pb-6 mt-3 backdrop-blur-xl animate-fadeIn shadow-2xl">
           <div className="flex flex-col space-y-3">
             <div className="px-3 py-1 font-tech text-[10px] text-[#00F0FF] tracking-widest uppercase border-b border-white/10">
               // NAVIGATION PROTOCOL

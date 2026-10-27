@@ -33,7 +33,7 @@ export default function HeroVisual() {
 
       {/* Cybernetic Frame Container with Lighter Modern Slate Panel */}
       <div 
-        className="relative w-full h-full rounded-2xl overflow-hidden border border-slate-700/80 bg-[#131C31] shadow-2xl transition-transform duration-300 ease-out"
+        className="relative w-full h-full rounded-2xl overflow-hidden border border-slate-600/80 bg-[#1E2C44] shadow-2xl transition-transform duration-300 ease-out"
         style={{
           transform: `perspective(1000px) rotateY(${mousePos.x * 8}deg) rotateX(${-mousePos.y * 8}deg)`,
         }}
@@ -46,19 +46,19 @@ export default function HeroVisual() {
         />
 
         {/* Ambient Gradient Vignette with lighter navy falloff */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-[#0F172A]/25 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/40 via-transparent to-[#0F172A]/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#172338] via-transparent to-[#172338]/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#172338]/40 via-transparent to-[#172338]/30 pointer-events-none" />
 
         {/* Technical HUD Interface Markings & Overlay */}
         <div className="absolute inset-0 pointer-events-none p-5 sm:p-6 flex flex-col justify-between">
           
           {/* Top Bar HUD */}
           <div className="flex items-center justify-between font-tech text-[10px] sm:text-xs">
-            <div className="flex items-center gap-2 bg-[#17233D]/90 px-3 py-1.5 rounded-lg border border-[#00F0FF]/50 text-[#00F0FF] shadow-lg backdrop-blur-md">
+            <div className="flex items-center gap-2 bg-[#24344E]/90 px-3 py-1.5 rounded-lg border border-[#00F0FF]/50 text-[#00F0FF] shadow-lg backdrop-blur-md">
               <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-ping" />
               <span className="font-bold">CORE_UNIT: RF-2026 // ONLINE</span>
             </div>
-            <div className="text-slate-200 bg-[#17233D]/90 px-3 py-1.5 rounded-lg border border-slate-600/80 hidden sm:flex items-center gap-1.5 shadow-lg backdrop-blur-md">
+            <div className="text-slate-200 bg-[#24344E]/90 px-3 py-1.5 rounded-lg border border-slate-600/80 hidden sm:flex items-center gap-1.5 shadow-lg backdrop-blur-md">
               <Crosshair className="w-3.5 h-3.5 text-[#FF6B00]" />
               <span className="font-semibold">FOV: 124.6° REC</span>
             </div>
@@ -73,7 +73,7 @@ export default function HeroVisual() {
 
           {/* Bottom Telemetry Bar */}
           <div className="flex flex-wrap items-end justify-between gap-3 font-tech text-[10px] sm:text-xs">
-            <div className="space-y-1 bg-[#17233D]/90 p-2.5 rounded-lg border border-slate-600/80 shadow-lg backdrop-blur-md">
+            <div className="space-y-1 bg-[#24344E]/90 p-2.5 rounded-lg border border-slate-600/80 shadow-lg backdrop-blur-md">
               <div className="text-slate-300 flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-[#00F0FF]" />
                 <span>SYNC RATE: <strong className="text-white font-bold">99.8%</strong></span>
@@ -84,7 +84,7 @@ export default function HeroVisual() {
               </div>
             </div>
 
-            <div className="text-right bg-[#17233D]/90 px-3 py-2 rounded-lg border border-[#00F0FF]/40 shadow-lg backdrop-blur-md">
+            <div className="text-right bg-[#24344E]/90 px-3 py-2 rounded-lg border border-[#00F0FF]/40 shadow-lg backdrop-blur-md">
               <div className="text-[10px] uppercase tracking-widest text-[#00F0FF] font-bold">ROBOTiX CLUB LABS</div>
               <div className="text-white font-bold">NIT RAIPUR CORE</div>
             </div>

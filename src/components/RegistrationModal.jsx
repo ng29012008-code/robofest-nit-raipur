@@ -29,7 +29,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-lg rounded-2xl bg-[#142037] border border-[#00F0FF]/50 shadow-[0_0_50px_rgba(0,240,255,0.3)] p-6 sm:p-8 overflow-hidden text-left"
+        className="relative w-full max-w-lg rounded-2xl bg-[#202F4B] border border-[#00F0FF]/50 shadow-[0_0_50px_rgba(0,240,255,0.3)] p-6 sm:p-8 overflow-hidden text-left"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -38,7 +38,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
             soundManager.playClick();
             onClose();
           }}
-          className="absolute top-5 right-5 p-2 rounded-lg bg-[#1E2D4A] text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-lg bg-[#273B5E] text-slate-300 hover:text-white border border-slate-600 hover:border-slate-400 transition-colors"
           aria-label="Close registration dialog"
         >
           <X className="w-5 h-5" />
@@ -46,7 +46,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
 
         {/* Modal Header */}
         <div className="space-y-2 pr-10">
-          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#1E2E4E] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-[11px] tracking-wider uppercase font-semibold">
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#283C61] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-[11px] tracking-wider uppercase font-semibold">
             <Sparkles className="w-3 h-3" />
             <span>ROBOFEST 2026 // ADMISSION PROTOCOL</span>
           </div>
@@ -59,7 +59,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
         {!submitted ? (
           <div className="mt-6 space-y-6">
             {/* Transparent Note regarding registration status */}
-            <div className="p-3.5 rounded-xl bg-[#1A2846] border border-amber-500/30 text-xs text-amber-200 flex gap-3">
+            <div className="p-3.5 rounded-xl bg-[#243553] border border-amber-500/30 text-xs text-amber-200 flex gap-3">
               <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <p className="font-bold">Registration Status Notice</p>
@@ -75,7 +75,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 <span>CONFIGURED URL:</span>
                 <span className="text-[#00F0FF]">src/config.js</span>
               </div>
-              <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-[#0F172A] border border-slate-700 font-mono text-xs text-slate-200">
+              <div className="flex items-center justify-between gap-2 p-2.5 rounded-lg bg-[#182337] border border-slate-600 font-mono text-xs text-slate-200">
                 <span className="truncate">{FESTIVAL_CONFIG.registrationUrl}</span>
                 <button
                   type="button"
@@ -101,7 +101,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                   placeholder="Team Lead / Participant Name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#1A2846] border border-slate-600 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#273B5E] border border-slate-600 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] transition-colors"
                 />
               </div>
 
@@ -112,7 +112,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                   placeholder="Institute / College Email (@nitrr.ac.in or college)"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#1A2846] border border-slate-600 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#273B5E] border border-slate-600 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-[#00F0FF] transition-colors"
                 />
               </div>
 
@@ -120,7 +120,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 <select
                   value={formData.event}
                   onChange={(e) => setFormData({ ...formData, event: e.target.value })}
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#1A2846] border border-slate-600 text-sm text-white focus:outline-none focus:border-[#00F0FF] transition-colors"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#273B5E] border border-slate-600 text-sm text-white focus:outline-none focus:border-[#00F0FF] transition-colors"
                 >
                   <option value="robo-wars">Event 01: Robo Wars (Combat)</option>
                   <option value="robo-race">Event 02: Robo Race (High-Speed Track)</option>
@@ -151,7 +151,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
               Acknowledged, <strong>{formData.name}</strong>. Your telemetry beacon has been pinned to the ROBOFEST 2026 pre-registration queue.
             </p>
 
-            <div className="p-3 rounded-lg bg-[#0F172A] border border-slate-700 font-mono text-xs text-slate-300">
+            <div className="p-3 rounded-lg bg-[#182337] border border-slate-600 font-mono text-xs text-slate-300">
               DISPATCH_NODE: NITRR-RF-CONFIRMED-DEMO
             </div>
 

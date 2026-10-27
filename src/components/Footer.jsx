@@ -45,16 +45,16 @@ export default function Footer({ onOpenRegisterModal }) {
   ];
 
   return (
-    <footer className="relative bg-[#0B101E] border-t border-slate-700/80 text-slate-300 py-16 overflow-hidden">
+    <footer className="relative bg-[#131B2B] border-t border-slate-600/80 text-slate-300 py-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Footer Row */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-700/80">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-600/80">
           
           {/* Brand & Organization (5 cols) */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#1E293B] border border-[#00F0FF]/40 text-[#00F0FF] shadow-md">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#243553] border border-[#00F0FF]/40 text-[#00F0FF] shadow-md">
                 <Cpu className="w-5 h-5" />
               </div>
               <div className="flex flex-col">
@@ -109,7 +109,7 @@ export default function Footer({ onOpenRegisterModal }) {
                   href={FESTIVAL_CONFIG.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-[#142037] border border-slate-700 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
+                  className="p-2.5 rounded-lg bg-[#202F4B] border border-slate-600 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
                   aria-label="GitHub"
                 >
                   <GithubIcon />
@@ -120,7 +120,7 @@ export default function Footer({ onOpenRegisterModal }) {
                   href={FESTIVAL_CONFIG.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-[#142037] border border-slate-700 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
+                  className="p-2.5 rounded-lg bg-[#202F4B] border border-slate-600 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
                   aria-label="LinkedIn"
                 >
                   <LinkedinIcon />
@@ -131,7 +131,7 @@ export default function Footer({ onOpenRegisterModal }) {
                   href={FESTIVAL_CONFIG.socialLinks.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-[#142037] border border-slate-700 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
+                  className="p-2.5 rounded-lg bg-[#202F4B] border border-slate-600 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
                   aria-label="Instagram"
                 >
                   <InstagramIcon />
@@ -142,7 +142,7 @@ export default function Footer({ onOpenRegisterModal }) {
                   href={FESTIVAL_CONFIG.socialLinks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-[#142037] border border-slate-700 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
+                  className="p-2.5 rounded-lg bg-[#202F4B] border border-slate-600 hover:border-[#00F0FF] hover:text-[#00F0FF] transition-colors shadow-sm"
                   aria-label="Twitter / X"
                 >
                   <TwitterIcon />

@@ -59,11 +59,11 @@ export default function RoboticsInterface() {
   return (
     <section 
       id="interface" 
-      className="relative py-24 md:py-36 bg-[#0D1527] border-t border-slate-700/50 overflow-hidden"
+      className="relative py-24 md:py-36 bg-[#18253B]/70 border-t border-slate-600/50 overflow-hidden"
     >
       {/* Background glow and dots */}
       <div className="absolute inset-0 bg-cyber-dots opacity-45 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-[#00F0FF]/10 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-[#00F0FF]/15 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -75,7 +75,7 @@ export default function RoboticsInterface() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1E293B] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#243553] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
             <span>INTERACTIVE TESTBED // FRONTEND SIMULATION</span>
           </div>
 
@@ -100,11 +100,11 @@ export default function RoboticsInterface() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.7 }}
-          className="rounded-2xl border border-slate-700/80 bg-[#14213B] backdrop-blur-xl shadow-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
+          className="rounded-2xl border border-slate-600/80 bg-[#202F4B] backdrop-blur-xl shadow-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
         >
           
           {/* Top Console Status Bar */}
-          <div className="flex flex-wrap items-center justify-between pb-6 border-b border-slate-700/80 gap-4">
+          <div className="flex flex-wrap items-center justify-between pb-6 border-b border-slate-600/80 gap-4">
             
             {/* System Status Pill */}
             <div className="flex items-center gap-3">
@@ -139,7 +139,7 @@ export default function RoboticsInterface() {
             {/* Quick Metrics Bar with Visualizer Equalizer */}
             <div className="flex items-center gap-6 font-tech text-xs">
               {/* Animated Audio/Frequency Equalizer Bars */}
-              <div className="hidden md:flex items-center gap-1 h-6 px-2.5 py-1 rounded bg-[#0D1627] border border-slate-700">
+              <div className="hidden md:flex items-center gap-1 h-6 px-2.5 py-1 rounded bg-[#182337] border border-slate-600">
                 {[0.4, 0.8, 0.5, 0.9, 0.3, 0.7].map((height, i) => (
                   <motion.div
                     key={i}
@@ -202,7 +202,7 @@ export default function RoboticsInterface() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 items-center">
             
             {/* Left: Central Robotic HUD Technical Visualizer (7 cols) */}
-            <div className="lg:col-span-7 rounded-xl bg-[#0D1627] border border-slate-700 p-5 sm:p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[320px] shadow-inner">
+            <div className="lg:col-span-7 rounded-xl bg-[#182337] border border-slate-600 p-5 sm:p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[320px] shadow-inner">
               
               {/* Scanline Effect */}
               {isOnline && <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00F0FF]/10 to-transparent h-20 w-full animate-scanline pointer-events-none" />}
@@ -233,7 +233,7 @@ export default function RoboticsInterface() {
                     className={`w-20 h-20 rounded-2xl flex items-center justify-center border transition-colors duration-500 shadow-xl ${
                       isOnline 
                         ? 'bg-[#00F0FF]/20 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_30px_rgba(0,240,255,0.4)]' 
-                        : 'bg-[#142037] border-slate-600 text-slate-300'
+                        : 'bg-[#243553] border-slate-500 text-slate-300'
                     }`}
                   >
                     <Cpu className="w-10 h-10" />
@@ -272,7 +272,7 @@ export default function RoboticsInterface() {
                       className={`p-2.5 rounded-lg border text-left transition-all duration-200 shadow-sm ${
                         isCurrent 
                           ? 'bg-[#1E2E4E] border-[#00F0FF] text-white shadow-[0_0_15px_rgba(0,240,255,0.25)]'
-                          : 'bg-[#142037] border-slate-700 text-slate-300 hover:border-slate-500 hover:text-white'
+                          : 'bg-[#202F4B] border-slate-600 text-slate-300 hover:border-slate-400 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-1.5 text-xs font-tech font-semibold">
@@ -300,7 +300,7 @@ export default function RoboticsInterface() {
               </div>
 
               {/* Terminal Log Console */}
-              <div className="rounded-xl bg-[#09101C] border border-slate-700 p-4 font-tech text-xs space-y-2 h-[260px] overflow-y-auto shadow-inner">
+              <div className="rounded-xl bg-[#141E30] border border-slate-600 p-4 font-tech text-xs space-y-2 h-[260px] overflow-y-auto shadow-inner">
                 {logs.map((log) => (
                   <motion.div 
                     key={log.id} 
@@ -321,7 +321,7 @@ export default function RoboticsInterface() {
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="p-3 rounded-xl bg-[#142037] border border-slate-700 flex items-center justify-between shadow-md"
+                  className="p-3 rounded-xl bg-[#243553] border border-slate-600 flex items-center justify-between shadow-md"
                 >
                   <div className="flex flex-col">
                     <span className="font-tech text-[10px] text-slate-300 font-semibold">SENSOR MESH</span>
@@ -334,7 +334,7 @@ export default function RoboticsInterface() {
 
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="p-3 rounded-xl bg-[#142037] border border-slate-700 flex items-center justify-between shadow-md"
+                  className="p-3 rounded-xl bg-[#243553] border border-slate-600 flex items-center justify-between shadow-md"
                 >
                   <div className="flex flex-col">
                     <span className="font-tech text-[10px] text-slate-300 font-semibold">PWM OVERDRIVE</span>

@@ -42,11 +42,11 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="relative py-24 md:py-36 bg-[#0D1527] border-t border-slate-700/50 overflow-hidden"
+      className="relative py-24 md:py-36 bg-[#18253B]/70 border-t border-slate-600/50 overflow-hidden"
     >
       {/* Lighter ambient glow */}
-      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#00F0FF]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-[#FF6B00]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#00F0FF]/15 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-[#FF6B00]/15 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -58,7 +58,7 @@ export default function About() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="max-w-3xl mb-16 md:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1A2642] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#243553] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
             <span>01 / THE VISION</span>
           </div>
 
@@ -85,7 +85,7 @@ export default function About() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="lg:col-span-7 flex flex-col"
           >
-            <div className="relative rounded-2xl border border-slate-700/80 bg-[#141F36] p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden group shadow-2xl">
+            <div className="relative rounded-2xl border border-slate-600/80 bg-[#202F4B] p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden group shadow-2xl">
               
               {/* Technical Blueprint Grid & HUD markings */}
               <div className="absolute inset-0 bg-cyber-grid opacity-60 pointer-events-none" />
@@ -201,15 +201,15 @@ export default function About() {
                   onMouseEnter={() => soundManager.playHover()}
                   className={`cursor-pointer rounded-xl p-5 sm:p-6 transition-all duration-300 border ${
                     isActive
-                      ? 'bg-[#1C2B4B] border-[#00F0FF]/80 shadow-[0_0_30px_rgba(0,240,255,0.25)]'
-                      : 'bg-[#141F36] border-slate-700/70 hover:border-slate-500 hover:bg-[#182642]'
+                      ? 'bg-[#283E63] border-[#00F0FF]/80 shadow-[0_0_30px_rgba(0,240,255,0.25)]'
+                      : 'bg-[#202F4B] border-slate-600/70 hover:border-slate-400 hover:bg-[#253757]'
                   }`}
                 >
                   <div className="flex items-start gap-4">
                     <div 
                       className="p-3 rounded-lg flex items-center justify-center shrink-0 border transition-transform duration-300 group-hover:scale-110 shadow-md"
                       style={{
-                        backgroundColor: isActive ? `${item.color}25` : '#18243E',
+                        backgroundColor: isActive ? `${item.color}25` : '#273856',
                         borderColor: isActive ? item.color : 'rgba(255,255,255,0.15)',
                         color: item.color,
                       }}

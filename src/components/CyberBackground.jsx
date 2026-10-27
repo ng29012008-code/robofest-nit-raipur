@@ -138,26 +138,26 @@ export default function CyberBackground() {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-[#0F172A] via-[#0B1120] to-[#0A0F1D]">
-      {/* Brighter, Luminous Ambient Gradient Flares */}
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-[#202E47] via-[#172338] to-[#141E30]">
+      {/* Luminous Ambient Gradient Flares across lighter slate */}
       <div 
-        className="absolute -top-32 -left-32 w-[700px] h-[700px] rounded-full blur-[140px] opacity-40 pointer-events-none animate-pulse-subtle"
+        className="absolute -top-32 -left-32 w-[750px] h-[750px] rounded-full blur-[140px] opacity-50 pointer-events-none animate-pulse-subtle"
         style={{ background: 'radial-gradient(circle, #0284C7 0%, #00F0FF 45%, transparent 70%)' }}
       />
       <div 
-        className="absolute top-1/4 -right-32 w-[650px] h-[650px] rounded-full blur-[150px] opacity-30 pointer-events-none"
+        className="absolute top-1/4 -right-32 w-[700px] h-[700px] rounded-full blur-[150px] opacity-40 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #EA580C 0%, #FF6B00 50%, transparent 70%)', animation: 'pulse-subtle 6s ease-in-out infinite' }}
       />
       <div 
-        className="absolute top-2/3 left-1/4 w-[850px] h-[550px] rounded-full blur-[180px] opacity-35 pointer-events-none"
+        className="absolute top-2/3 left-1/4 w-[900px] h-[600px] rounded-full blur-[180px] opacity-45 pointer-events-none"
         style={{ background: 'radial-gradient(circle, #0369A1 0%, #38BDF8 60%, transparent 75%)' }}
       />
 
       {/* Lighter, Refined Cyber Grid */}
-      <div className="absolute inset-0 bg-cyber-grid opacity-75" />
+      <div className="absolute inset-0 bg-cyber-grid opacity-85" />
 
       {/* Canvas ambient interactive particles */}
-      <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full opacity-90" />
+      <canvas ref={canvasRef} className="absolute inset-0 block w-full h-full opacity-95" />
     </div>
   );
 }

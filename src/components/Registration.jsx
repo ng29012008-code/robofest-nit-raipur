@@ -17,7 +17,7 @@ export default function Registration({ onOpenRegisterModal }) {
   return (
     <section 
       id="register" 
-      className="relative py-24 md:py-36 bg-[#0B1120] border-t border-slate-700/50 overflow-hidden"
+      className="relative py-24 md:py-36 bg-[#18253B]/70 border-t border-slate-600/50 overflow-hidden"
     >
       {/* Dramatic atmospheric radial glows with slow pulsing and brighter radiance */}
       <motion.div 
@@ -40,14 +40,14 @@ export default function Registration({ onOpenRegisterModal }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7 }}
-          className="relative rounded-3xl bg-gradient-to-b from-[#182645] via-[#131E35] to-[#0E1627] border border-slate-700/80 p-8 sm:p-12 md:p-16 lg:p-20 text-center overflow-hidden shadow-2xl"
+          className="relative rounded-3xl bg-gradient-to-b from-[#24375A] via-[#1D2C48] to-[#17233A] border border-slate-600/80 p-8 sm:p-12 md:p-16 lg:p-20 text-center overflow-hidden shadow-2xl"
         >
           
           {/* Subtle Grid overlay */}
           <div className="absolute inset-0 bg-cyber-grid opacity-50 pointer-events-none" />
 
           {/* Top Label */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1E2E4E] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-6 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#283C61] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-6 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
             <span>03 / YOUR NEXT MOVE</span>
           </div>
 
@@ -98,8 +98,8 @@ export default function Registration({ onOpenRegisterModal }) {
           </motion.div>
 
           {/* Configurable URL Identifier Notice for Evaluators / Admins */}
-          <div className="mt-12 pt-8 border-t border-slate-700 max-w-xl mx-auto text-left rounded-xl bg-[#10182C] p-4 border border-slate-700/60 shadow-lg">
-            <div className="flex items-center justify-between font-tech text-xs text-slate-300 pb-2 border-b border-slate-700/60 font-semibold">
+          <div className="mt-12 pt-8 border-t border-slate-700 max-w-xl mx-auto text-left rounded-xl bg-[#1A263D] p-4 border border-slate-600/60 shadow-lg">
+            <div className="flex items-center justify-between font-tech text-xs text-slate-300 pb-2 border-b border-slate-600/60 font-semibold">
               <span className="flex items-center gap-1.5 text-[#00F0FF]">
                 <Shield className="w-3.5 h-3.5" />
                 CONFIGURABLE REGISTRATION URL
@@ -107,7 +107,7 @@ export default function Registration({ onOpenRegisterModal }) {
               <span className="text-[10px] text-slate-400">src/config.js</span>
             </div>
 
-            <div className="mt-2.5 flex items-center justify-between gap-3 bg-[#0A0F1D] px-3.5 py-2.5 rounded-lg font-mono text-xs text-slate-200 border border-slate-700">
+            <div className="mt-2.5 flex items-center justify-between gap-3 bg-[#141E30] px-3.5 py-2.5 rounded-lg font-mono text-xs text-slate-200 border border-slate-600">
               <span className="truncate">{FESTIVAL_CONFIG.registrationUrl}</span>
               <button
                 onClick={handleCopyLink}

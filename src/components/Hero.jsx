@@ -49,7 +49,7 @@ export default function Hero({ onOpenRegisterModal }) {
             
             {/* Status & Organizer Pill Header */}
             <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0D1527] border border-[#00F0FF]/30 text-[#00F0FF] text-[10px] sm:text-xs font-tech tracking-wider uppercase shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#1E2E4E] border border-[#00F0FF]/40 text-[#00F0FF] text-[10px] sm:text-xs font-tech tracking-wider uppercase shadow-[0_0_15px_rgba(0,240,255,0.2)]">
                 <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-ping" />
                 <span>ROBOTiX CLUB • NIT RAIPUR PRESENTS</span>
               </div>
@@ -122,11 +122,11 @@ export default function Hero({ onOpenRegisterModal }) {
               {/* Secondary CTA */}
               <motion.a
                 href="#interface"
-                whileHover={{ scale: 1.04, borderColor: '#00F0FF', backgroundColor: 'rgba(20, 32, 59, 0.9)' }}
+                whileHover={{ scale: 1.04, borderColor: '#00F0FF', backgroundColor: 'rgba(36, 54, 86, 0.95)' }}
                 whileTap={{ scale: 0.97 }}
                 onMouseEnter={() => soundManager.playHover()}
                 onClick={() => soundManager.playClick()}
-                className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#0D1527] text-white border border-[#00F0FF]/30 font-display font-bold text-xs sm:text-sm tracking-wider uppercase transition-colors duration-200"
+                className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#1E2E4E] text-white border border-[#00F0FF]/40 font-display font-bold text-xs sm:text-sm tracking-wider uppercase transition-colors duration-200"
               >
                 <span>ENTER THE ARENA</span>
                 <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF6B00] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
