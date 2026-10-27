@@ -3,7 +3,8 @@
 > **Host Organization:** ROBOTiX Club, National Institute of Technology (NIT) Raipur  
 > **Individual Frontend Development Recruitment Assignment**  
 > 
-> 🌐 **Live Website Link:** **[https://robofest2026-nitrr.surge.sh](https://robofest2026-nitrr.surge.sh)**
+> 🌐 **Public Live Website Link:** **[https://vzggu-117-236-139-6.run.pinggy-free.link](https://vzggu-117-236-139-6.run.pinggy-free.link)**  
+> *(Alternative mirror: https://etbwk-117-236-139-6.free.pinggy.net)*
 
 ---
 
