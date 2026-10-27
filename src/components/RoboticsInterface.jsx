@@ -59,11 +59,11 @@ export default function RoboticsInterface() {
   return (
     <section 
       id="interface" 
-      className="relative py-24 md:py-36 bg-[#05070B] border-t border-white/5 overflow-hidden"
+      className="relative py-24 md:py-36 bg-[#0D1527] border-t border-slate-700/50 overflow-hidden"
     >
       {/* Background glow and dots */}
-      <div className="absolute inset-0 bg-cyber-dots opacity-30 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#00F0FF]/5 rounded-full blur-[180px] pointer-events-none" />
+      <div className="absolute inset-0 bg-cyber-dots opacity-45 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-[#00F0FF]/10 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -75,36 +75,36 @@ export default function RoboticsInterface() {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E1626] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1E293B] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
             <span>INTERACTIVE TESTBED // FRONTEND SIMULATION</span>
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.05]">
             INITIALIZE YOUR <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-sky-300 to-[#FF6B00]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-sky-200 to-[#FF6B00]">
               CURIOSITY.
             </span>
           </h2>
 
-          <p className="mt-5 text-slate-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
+          <p className="mt-5 text-slate-200 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
             Interact with the simulated festival telemetry console. Test hardware status channels, trigger diagnostics, and initialize system modules.
           </p>
-          <div className="mt-2 text-xs font-tech text-slate-500">
+          <div className="mt-2 text-xs font-tech text-slate-400">
             * Frontend-only simulation for demonstration and conceptual exploration.
           </div>
         </motion.div>
 
-        {/* Futuristic Control Console Dashboard */}
+        {/* Futuristic Control Console Dashboard with Lighter Slate Finish */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.7 }}
-          className="rounded-2xl border border-white/15 bg-[#090E1A]/95 backdrop-blur-xl shadow-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
+          className="rounded-2xl border border-slate-700/80 bg-[#14213B] backdrop-blur-xl shadow-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
         >
           
           {/* Top Console Status Bar */}
-          <div className="flex flex-wrap items-center justify-between pb-6 border-b border-white/10 gap-4">
+          <div className="flex flex-wrap items-center justify-between pb-6 border-b border-slate-700/80 gap-4">
             
             {/* System Status Pill */}
             <div className="flex items-center gap-3">
@@ -121,14 +121,14 @@ export default function RoboticsInterface() {
                     ? 'bg-[#00F0FF]' 
                     : isInitializing
                     ? 'bg-[#FF6B00] animate-ping'
-                    : 'bg-slate-600'
+                    : 'bg-slate-500'
                 }`} 
               />
               <div className="flex flex-col">
-                <span className="font-tech text-[10px] text-slate-400 uppercase tracking-widest">SYSTEM STATUS</span>
+                <span className="font-tech text-[10px] text-slate-400 uppercase tracking-widest font-bold">SYSTEM STATUS</span>
                 <span 
                   className={`font-display font-black text-base sm:text-lg tracking-wider ${
-                    isOnline ? 'text-[#00F0FF]' : isInitializing ? 'text-[#FF6B00]' : 'text-slate-400'
+                    isOnline ? 'text-[#00F0FF]' : isInitializing ? 'text-[#FF8833]' : 'text-slate-300'
                   }`}
                 >
                   {systemState}
@@ -139,13 +139,13 @@ export default function RoboticsInterface() {
             {/* Quick Metrics Bar with Visualizer Equalizer */}
             <div className="flex items-center gap-6 font-tech text-xs">
               {/* Animated Audio/Frequency Equalizer Bars */}
-              <div className="hidden md:flex items-center gap-1 h-5 px-2 py-1 rounded bg-[#060A14] border border-white/10">
+              <div className="hidden md:flex items-center gap-1 h-6 px-2.5 py-1 rounded bg-[#0D1627] border border-slate-700">
                 {[0.4, 0.8, 0.5, 0.9, 0.3, 0.7].map((height, i) => (
                   <motion.div
                     key={i}
                     className="w-1 bg-[#00F0FF] rounded-full"
                     animate={{
-                      height: isOnline ? [4, 16 * height, 6] : 4,
+                      height: isOnline ? [4, 18 * height, 6] : 4,
                     }}
                     transition={{
                       duration: 0.6 + i * 0.1,
@@ -157,18 +157,18 @@ export default function RoboticsInterface() {
               </div>
 
               <div className="hidden sm:flex flex-col">
-                <span className="text-slate-500 uppercase text-[10px]">POWER BUS</span>
+                <span className="text-slate-400 uppercase text-[10px] font-semibold">POWER BUS</span>
                 <span className="text-white font-bold">{powerLevel}% LOAD</span>
               </div>
 
               <div className="hidden sm:flex flex-col">
-                <span className="text-slate-500 uppercase text-[10px]">BUS FREQ</span>
+                <span className="text-slate-400 uppercase text-[10px] font-semibold">BUS FREQ</span>
                 <span className="text-[#00F0FF] font-bold">{isOnline ? '4.80 GHz' : '0.80 GHz'}</span>
               </div>
 
               <div className="flex flex-col">
-                <span className="text-slate-500 uppercase text-[10px]">LINK PING</span>
-                <span className={isOnline ? 'text-emerald-400 font-bold' : 'text-slate-400 font-bold'}>
+                <span className="text-slate-400 uppercase text-[10px] font-semibold">LINK PING</span>
+                <span className={isOnline ? 'text-emerald-400 font-bold' : 'text-slate-300 font-bold'}>
                   {isOnline ? '1.2 ms' : 'DISCONNECTED'}
                 </span>
               </div>
@@ -182,12 +182,12 @@ export default function RoboticsInterface() {
               onMouseEnter={() => soundManager.playHover()}
               disabled={isInitializing}
               type="button"
-              className={`relative inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-display font-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 ${
+              className={`relative inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-display font-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-lg ${
                 isOnline
-                  ? 'bg-[#0E1729] text-[#00F0FF] border border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]'
+                  ? 'bg-[#1E2D4A] text-[#00F0FF] border border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.3)]'
                   : isInitializing
-                  ? 'bg-[#FF6B00]/20 text-[#FF6B00] border border-[#FF6B00] cursor-wait'
-                  : 'bg-gradient-to-r from-[#00F0FF] to-[#0284C7] text-[#05070B] shadow-[0_0_25px_rgba(0,240,255,0.4)]'
+                  ? 'bg-[#FF6B00]/25 text-[#FF8833] border border-[#FF6B00] cursor-wait'
+                  : 'bg-gradient-to-r from-[#00F0FF] to-[#0284C7] text-[#0B1120] shadow-[0_0_25px_rgba(0,240,255,0.4)]'
               }`}
             >
               <Power className={`w-4 h-4 ${isInitializing ? 'animate-spin' : ''}`} />
@@ -202,23 +202,23 @@ export default function RoboticsInterface() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 items-center">
             
             {/* Left: Central Robotic HUD Technical Visualizer (7 cols) */}
-            <div className="lg:col-span-7 rounded-xl bg-[#060A14] border border-white/10 p-5 sm:p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[320px]">
+            <div className="lg:col-span-7 rounded-xl bg-[#0D1627] border border-slate-700 p-5 sm:p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[320px] shadow-inner">
               
               {/* Scanline Effect */}
-              {isOnline && <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00F0FF]/5 to-transparent h-20 w-full animate-scanline pointer-events-none" />}
+              {isOnline && <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00F0FF]/10 to-transparent h-20 w-full animate-scanline pointer-events-none" />}
 
               {/* Dynamic Radial Visualizer */}
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
                 {/* Outer Ring with Continuous Rotation */}
                 <motion.div 
-                  className="absolute inset-0 rounded-full border border-dashed border-[#00F0FF]/40"
+                  className="absolute inset-0 rounded-full border border-dashed border-[#00F0FF]/50"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
                 />
 
                 {/* Inner Counter-Rotating Ring */}
                 <motion.div 
-                  className="absolute inset-6 rounded-full border border-[#FF6B00]/30"
+                  className="absolute inset-6 rounded-full border border-[#FF6B00]/40"
                   animate={{ rotate: -360 }}
                   transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
                 />
@@ -230,10 +230,10 @@ export default function RoboticsInterface() {
                       scale: isOnline ? [1, 1.08, 1] : 1,
                     }}
                     transition={{ duration: 2, repeat: isOnline ? Infinity : 0 }}
-                    className={`w-20 h-20 rounded-2xl flex items-center justify-center border transition-colors duration-500 ${
+                    className={`w-20 h-20 rounded-2xl flex items-center justify-center border transition-colors duration-500 shadow-xl ${
                       isOnline 
-                        ? 'bg-[#00F0FF]/15 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_30px_rgba(0,240,255,0.4)]' 
-                        : 'bg-[#0A0F1A] border-white/15 text-slate-500'
+                        ? 'bg-[#00F0FF]/20 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_30px_rgba(0,240,255,0.4)]' 
+                        : 'bg-[#142037] border-slate-600 text-slate-300'
                     }`}
                   >
                     <Cpu className="w-10 h-10" />
@@ -242,20 +242,20 @@ export default function RoboticsInterface() {
                   <span className="mt-3 font-tech text-xs text-white font-bold tracking-wider">
                     {isOnline ? 'ROBOTIC TELEMETRY ACTIVE' : 'SYSTEM STANDBY'}
                   </span>
-                  <span className="font-tech text-[10px] text-slate-400">
+                  <span className="font-tech text-[10px] text-slate-300">
                     {isOnline ? 'CHASSIS_NODE: ONLINE' : 'PRESS INITIALIZE TO ENGAGE'}
                   </span>
                 </div>
 
                 {/* Corner Crosshairs */}
-                <div className="absolute top-2 left-2 text-[#00F0FF]/40 font-mono text-[9px]">+ RF_26</div>
-                <div className="absolute top-2 right-2 text-[#00F0FF]/40 font-mono text-[9px]">// NITRR</div>
-                <div className="absolute bottom-2 left-2 text-[#00F0FF]/40 font-mono text-[9px]">[ACTIVE]</div>
-                <div className="absolute bottom-2 right-2 text-[#00F0FF]/40 font-mono text-[9px]">48V DC</div>
+                <div className="absolute top-2 left-2 text-[#00F0FF] font-mono text-[9px] font-bold">+ RF_26</div>
+                <div className="absolute top-2 right-2 text-[#00F0FF] font-mono text-[9px] font-bold">// NITRR</div>
+                <div className="absolute bottom-2 left-2 text-[#00F0FF] font-mono text-[9px] font-bold">[ACTIVE]</div>
+                <div className="absolute bottom-2 right-2 text-[#00F0FF] font-mono text-[9px] font-bold">48V DC</div>
               </div>
 
               {/* Subsystem Toggles below visualizer */}
-              <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6 pt-4 border-t border-white/10">
+              <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-6 pt-4 border-t border-slate-700">
                 {subsystems.map((sub) => {
                   const Icon = sub.icon;
                   const isCurrent = activeSubsystem === sub.id;
@@ -269,17 +269,17 @@ export default function RoboticsInterface() {
                         setActiveSubsystem(sub.id);
                       }}
                       onMouseEnter={() => soundManager.playHover()}
-                      className={`p-2.5 rounded-lg border text-left transition-all duration-200 ${
+                      className={`p-2.5 rounded-lg border text-left transition-all duration-200 shadow-sm ${
                         isCurrent 
-                          ? 'bg-[#0F1A30] border-[#00F0FF] text-white shadow-[0_0_15px_rgba(0,240,255,0.2)]'
-                          : 'bg-[#0A0F1A] border-white/10 text-slate-400 hover:border-white/25 hover:text-slate-200'
+                          ? 'bg-[#1E2E4E] border-[#00F0FF] text-white shadow-[0_0_15px_rgba(0,240,255,0.25)]'
+                          : 'bg-[#142037] border-slate-700 text-slate-300 hover:border-slate-500 hover:text-white'
                       }`}
                     >
-                      <div className="flex items-center gap-1.5 text-xs font-tech">
-                        <Icon className={`w-3.5 h-3.5 ${isCurrent ? 'text-[#00F0FF]' : 'text-slate-500'}`} />
+                      <div className="flex items-center gap-1.5 text-xs font-tech font-semibold">
+                        <Icon className={`w-3.5 h-3.5 ${isCurrent ? 'text-[#00F0FF]' : 'text-slate-400'}`} />
                         <span>{sub.name}</span>
                       </div>
-                      <div className="text-[10px] font-tech text-slate-400 mt-1 truncate">
+                      <div className="text-[10px] font-tech text-slate-300 mt-1 truncate">
                         {sub.stat}
                       </div>
                     </motion.button>
@@ -291,16 +291,16 @@ export default function RoboticsInterface() {
 
             {/* Right: Simulated Real-time Diagnostic Log Stream (5 cols) */}
             <div className="lg:col-span-5 flex flex-col space-y-4">
-              <div className="flex items-center justify-between font-tech text-xs text-slate-400">
-                <div className="flex items-center gap-2 text-[#00F0FF]">
+              <div className="flex items-center justify-between font-tech text-xs text-slate-300">
+                <div className="flex items-center gap-2 text-[#00F0FF] font-bold">
                   <Terminal className="w-4 h-4 animate-pulse" />
                   <span>LIVE_DIAGNOSTIC_FEED</span>
                 </div>
-                <span className="text-[10px] text-slate-500">AUTO_STREAM</span>
+                <span className="text-[10px] text-slate-400">AUTO_STREAM</span>
               </div>
 
               {/* Terminal Log Console */}
-              <div className="rounded-xl bg-[#04070E] border border-white/10 p-4 font-tech text-xs space-y-2 h-[260px] overflow-y-auto">
+              <div className="rounded-xl bg-[#09101C] border border-slate-700 p-4 font-tech text-xs space-y-2 h-[260px] overflow-y-auto shadow-inner">
                 {logs.map((log) => (
                   <motion.div 
                     key={log.id} 
@@ -309,8 +309,8 @@ export default function RoboticsInterface() {
                     transition={{ duration: 0.3 }}
                     className="leading-relaxed flex gap-2"
                   >
-                    <span className="text-slate-600 select-none">[{log.time}]</span>
-                    <span className={log.text.includes('ONLINE') ? 'text-emerald-400 font-bold' : log.text.includes('STANDBY') ? 'text-slate-400' : 'text-[#00F0FF]'}>
+                    <span className="text-slate-500 select-none">[{log.time}]</span>
+                    <span className={log.text.includes('ONLINE') ? 'text-emerald-400 font-bold' : log.text.includes('STANDBY') ? 'text-slate-300' : 'text-[#00F0FF]'}>
                       {log.text}
                     </span>
                   </motion.div>
@@ -321,28 +321,28 @@ export default function RoboticsInterface() {
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="p-3 rounded-xl bg-[#080E1A] border border-white/10 flex items-center justify-between"
+                  className="p-3 rounded-xl bg-[#142037] border border-slate-700 flex items-center justify-between shadow-md"
                 >
                   <div className="flex flex-col">
-                    <span className="font-tech text-[10px] text-slate-400">SENSOR MESH</span>
+                    <span className="font-tech text-[10px] text-slate-300 font-semibold">SENSOR MESH</span>
                     <span className="font-tech text-xs font-bold text-white">
                       {isOnline ? '16/16 SYNC' : 'STANDBY'}
                     </span>
                   </div>
-                  <ShieldCheck className={`w-5 h-5 ${isOnline ? 'text-[#00F0FF]' : 'text-slate-600'}`} />
+                  <ShieldCheck className={`w-5 h-5 ${isOnline ? 'text-[#00F0FF]' : 'text-slate-400'}`} />
                 </motion.div>
 
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="p-3 rounded-xl bg-[#080E1A] border border-white/10 flex items-center justify-between"
+                  className="p-3 rounded-xl bg-[#142037] border border-slate-700 flex items-center justify-between shadow-md"
                 >
                   <div className="flex flex-col">
-                    <span className="font-tech text-[10px] text-slate-400">PWM OVERDRIVE</span>
+                    <span className="font-tech text-[10px] text-slate-300 font-semibold">PWM OVERDRIVE</span>
                     <span className="font-tech text-xs font-bold text-white">
                       {isOnline ? 'ARMED' : 'DISARMED'}
                     </span>
                   </div>
-                  <Gauge className={`w-5 h-5 ${isOnline ? 'text-[#FF6B00]' : 'text-slate-600'}`} />
+                  <Gauge className={`w-5 h-5 ${isOnline ? 'text-[#FF6B00]' : 'text-slate-400'}`} />
                 </motion.div>
               </div>
 
@@ -351,7 +351,7 @@ export default function RoboticsInterface() {
           </div>
 
           {/* Console Footer */}
-          <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between text-xs font-tech text-slate-500 gap-3">
+          <div className="pt-4 border-t border-slate-700/80 flex flex-wrap items-center justify-between text-xs font-tech text-slate-400 gap-3">
             <span>ROBOFEST 2026 // ENGINEERING WORKBENCH</span>
             <span>SIMULATION_ID: RF-NITRR-04</span>
           </div>

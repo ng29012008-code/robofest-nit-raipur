@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDownRight, ArrowUpRight, Terminal, Sparkles, Activity } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Terminal, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import HeroVisual from './HeroVisual';
 import { FESTIVAL_CONFIG } from '../config';
@@ -11,22 +11,20 @@ export default function Hero({ onOpenRegisterModal }) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.15,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 25, filter: 'blur(4px)' },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      filter: 'blur(0px)',
       transition: {
-        type: 'spring',
-        damping: 20,
-        stiffness: 120,
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -140,9 +138,9 @@ export default function Hero({ onOpenRegisterModal }) {
           {/* Right Column: Hero Futuristic Robotics Visual (5 cols) */}
           <motion.div 
             className="lg:col-span-5 w-full"
-            initial={{ opacity: 0, scale: 0.92, y: 30 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           >
             <HeroVisual />
           </motion.div>

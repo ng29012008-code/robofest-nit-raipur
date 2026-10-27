@@ -42,11 +42,11 @@ export default function About() {
   return (
     <section 
       id="about" 
-      className="relative py-24 md:py-36 bg-[#05070B] overflow-hidden"
+      className="relative py-24 md:py-36 bg-[#0D1527] border-t border-slate-700/50 overflow-hidden"
     >
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#00F0FF]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-[#FF6B00]/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Lighter ambient glow */}
+      <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#00F0FF]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-[500px] h-[500px] bg-[#FF6B00]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -58,18 +58,18 @@ export default function About() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="max-w-3xl mb-16 md:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E1626] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#1A2642] border border-[#00F0FF]/40 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
             <span>01 / THE VISION</span>
           </div>
 
           <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-[1.05]">
             BEYOND CIRCUITS. <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-[#00F0FF]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-sky-200 to-[#00F0FF]">
               BEYOND LIMITS.
             </span>
           </h2>
 
-          <p className="mt-6 text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
+          <p className="mt-6 text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
             ROBOFEST is a celebration of robotics, engineering, and innovation. It brings together curious minds who love building, experimenting, solving problems, and transforming ideas into working technology.
           </p>
         </motion.div>
@@ -85,25 +85,25 @@ export default function About() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="lg:col-span-7 flex flex-col"
           >
-            <div className="relative rounded-2xl border border-white/10 bg-[#090E1A]/90 p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden group shadow-2xl">
+            <div className="relative rounded-2xl border border-slate-700/80 bg-[#141F36] p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden group shadow-2xl">
               
               {/* Technical Blueprint Grid & HUD markings */}
-              <div className="absolute inset-0 bg-cyber-grid opacity-40 pointer-events-none" />
+              <div className="absolute inset-0 bg-cyber-grid opacity-60 pointer-events-none" />
 
               {/* Dynamic Scanning Laser Bar */}
               <motion.div 
-                className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#00F0FF] to-transparent pointer-events-none opacity-40 shadow-[0_0_10px_#00F0FF]"
+                className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#00F0FF] to-transparent pointer-events-none opacity-50 shadow-[0_0_12px_#00F0FF]"
                 animate={{ x: [0, 580, 0] }}
                 transition={{ duration: 7, ease: 'easeInOut', repeat: Infinity }}
               />
               
               {/* Card Header HUD */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/10 relative z-10 font-tech text-xs">
-                <div className="flex items-center gap-2 text-[#00F0FF]">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-700/80 relative z-10 font-tech text-xs">
+                <div className="flex items-center gap-2 text-[#00F0FF] font-bold">
                   <Binary className="w-4 h-4 animate-pulse" />
                   <span>CAD_SPEC // UNIT_X86_SYSTEM</span>
                 </div>
-                <div className="text-slate-400">
+                <div className="text-slate-300">
                   SUBSYSTEM: <span className="text-white font-bold">{highlights[activeTab].schematicPart}</span>
                 </div>
               </div>
@@ -112,15 +112,15 @@ export default function About() {
               <div className="relative my-8 py-6 flex items-center justify-center">
                 <svg viewBox="0 0 600 320" className="w-full h-auto max-h-[300px] text-white" fill="none" xmlns="http://www.w3.org/2000/svg">
                   {/* Grid Lines */}
-                  <line x1="50" y1="160" x2="550" y2="160" stroke="#00F0FF" strokeWidth="0.75" strokeDasharray="4 4" strokeOpacity="0.3" />
-                  <line x1="300" y1="30" x2="300" y2="290" stroke="#00F0FF" strokeWidth="0.75" strokeDasharray="4 4" strokeOpacity="0.3" />
+                  <line x1="50" y1="160" x2="550" y2="160" stroke="#00F0FF" strokeWidth="0.75" strokeDasharray="4 4" strokeOpacity="0.4" />
+                  <line x1="300" y1="30" x2="300" y2="290" stroke="#00F0FF" strokeWidth="0.75" strokeDasharray="4 4" strokeOpacity="0.4" />
 
                   {/* Central Main Robotic Core Housing */}
-                  <rect x="210" y="80" width="180" height="160" rx="12" fill="#0C1527" stroke="#00F0FF" strokeWidth="2" />
-                  <rect x="230" y="100" width="140" height="120" rx="8" fill="#070C16" stroke={highlights[activeTab].color} strokeWidth="1.5" strokeDasharray="3 3" />
+                  <rect x="210" y="80" width="180" height="160" rx="12" fill="#1A2846" stroke="#00F0FF" strokeWidth="2" />
+                  <rect x="230" y="100" width="140" height="120" rx="8" fill="#121D33" stroke={highlights[activeTab].color} strokeWidth="1.5" strokeDasharray="3 3" />
                   
                   {/* Internal Processor / Neural Node with Pulse */}
-                  <circle cx="300" cy="160" r="30" fill={highlights[activeTab].color} fillOpacity="0.15" stroke={highlights[activeTab].color} strokeWidth="2" className="animate-pulse" />
+                  <circle cx="300" cy="160" r="30" fill={highlights[activeTab].color} fillOpacity="0.2" stroke={highlights[activeTab].color} strokeWidth="2" className="animate-pulse" />
                   <circle cx="300" cy="160" r="12" fill={highlights[activeTab].color} />
                   
                   {/* Dynamic Hotspot Callout based on active tab */}
@@ -132,19 +132,19 @@ export default function About() {
                       <circle cx="470" cy="50" r="5" fill="#00F0FF" />
                       <circle cx="130" cy="270" r="5" fill="#00F0FF" />
                       <circle cx="470" cy="270" r="5" fill="#00F0FF" />
-                      <text x="145" y="45" fill="#00F0FF" fontSize="12" fontFamily="JetBrains Mono">STRUCTURAL_TOLERANCE: &lt;0.02mm</text>
+                      <text x="145" y="45" fill="#00F0FF" fontSize="12" fontFamily="JetBrains Mono" fontWeight="bold">STRUCTURAL_TOLERANCE: &lt;0.02mm</text>
                     </g>
                   )}
 
                   {activeTab === 1 && (
                     <g className="transition-all duration-300">
                       {/* Heavy Combat Actuators & Drivetrain */}
-                      <rect x="90" y="110" width="80" height="100" rx="8" fill="#141E30" stroke="#FF6B00" strokeWidth="2" />
-                      <rect x="430" y="110" width="80" height="100" rx="8" fill="#141E30" stroke="#FF6B00" strokeWidth="2" />
+                      <rect x="90" y="110" width="80" height="100" rx="8" fill="#1E2F50" stroke="#FF6B00" strokeWidth="2" />
+                      <rect x="430" y="110" width="80" height="100" rx="8" fill="#1E2F50" stroke="#FF6B00" strokeWidth="2" />
                       <line x1="170" y1="160" x2="210" y2="160" stroke="#FF6B00" strokeWidth="4" />
                       <line x1="390" y1="160" x2="430" y2="160" stroke="#FF6B00" strokeWidth="4" />
-                      <text x="75" y="95" fill="#FF6B00" fontSize="12" fontFamily="JetBrains Mono">TORQUE_ACTUATOR: 680Nm</text>
-                      <text x="390" y="95" fill="#FF6B00" fontSize="12" fontFamily="JetBrains Mono">PWM_FREQ: 24kHz</text>
+                      <text x="75" y="95" fill="#FF6B00" fontSize="12" fontFamily="JetBrains Mono" fontWeight="bold">TORQUE_ACTUATOR: 680Nm</text>
+                      <text x="390" y="95" fill="#FF6B00" fontSize="12" fontFamily="JetBrains Mono" fontWeight="bold">PWM_FREQ: 24kHz</text>
                     </g>
                   )}
 
@@ -155,25 +155,25 @@ export default function About() {
                       <circle cx="300" cy="15" r="7" fill="#00F0FF" />
                       <circle cx="220" cy="20" r="5" fill="#00F0FF" />
                       <circle cx="380" cy="20" r="5" fill="#00F0FF" />
-                      <text x="210" y="12" fill="#00F0FF" fontSize="12" fontFamily="JetBrains Mono">VISION_FOV: STEREO LIDAR</text>
+                      <text x="210" y="12" fill="#00F0FF" fontSize="12" fontFamily="JetBrains Mono" fontWeight="bold">VISION_FOV: STEREO LIDAR</text>
                     </g>
                   )}
 
                   {/* Corner dimension ticks */}
-                  <path d="M60 40 H100 M60 40 V80" stroke="#94A3B8" strokeWidth="1" strokeOpacity="0.5" />
-                  <path d="M540 40 H500 M540 40 V80" stroke="#94A3B8" strokeWidth="1" strokeOpacity="0.5" />
-                  <path d="M60 280 H100 M60 280 V240" stroke="#94A3B8" strokeWidth="1" strokeOpacity="0.5" />
-                  <path d="M540 280 H500 M540 280 V240" stroke="#94A3B8" strokeWidth="1" strokeOpacity="0.5" />
+                  <path d="M60 40 H100 M60 40 V80" stroke="#94A3B8" strokeWidth="1.2" strokeOpacity="0.7" />
+                  <path d="M540 40 H500 M540 40 V80" stroke="#94A3B8" strokeWidth="1.2" strokeOpacity="0.7" />
+                  <path d="M60 280 H100 M60 280 V240" stroke="#94A3B8" strokeWidth="1.2" strokeOpacity="0.7" />
+                  <path d="M540 280 H500 M540 280 V240" stroke="#94A3B8" strokeWidth="1.2" strokeOpacity="0.7" />
                 </svg>
               </div>
 
               {/* Bottom Card Footer Status */}
-              <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-tech text-slate-400">
+              <div className="pt-4 border-t border-slate-700/80 flex flex-wrap items-center justify-between gap-3 text-xs font-tech text-slate-300">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: highlights[activeTab].color }} />
-                  <span>SUBSYSTEM STATUS: OPTIMAL</span>
+                  <span className="w-2.5 h-2.5 rounded-full animate-ping" style={{ backgroundColor: highlights[activeTab].color }} />
+                  <span className="font-semibold text-white">SUBSYSTEM STATUS: OPTIMAL</span>
                 </div>
-                <div className="text-[11px] text-slate-500">
+                <div className="text-[11px] text-slate-400 font-semibold">
                   CLICK HIGHLIGHTS TO INSPECT MODULE
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right: The Three Visual Highlights with Framer Motion Stagger */}
+          {/* Right: The Three Visual Highlights with Lighter Modern Slate Styling */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
             {highlights.map((item, index) => {
               const Icon = item.icon;
@@ -201,16 +201,16 @@ export default function About() {
                   onMouseEnter={() => soundManager.playHover()}
                   className={`cursor-pointer rounded-xl p-5 sm:p-6 transition-all duration-300 border ${
                     isActive
-                      ? 'bg-[#0E1729] border-[#00F0FF]/60 shadow-[0_0_30px_rgba(0,240,255,0.2)]'
-                      : 'bg-[#0A0F1A]/70 border-white/10 hover:border-white/25 hover:bg-[#0D1525]'
+                      ? 'bg-[#1C2B4B] border-[#00F0FF]/80 shadow-[0_0_30px_rgba(0,240,255,0.25)]'
+                      : 'bg-[#141F36] border-slate-700/70 hover:border-slate-500 hover:bg-[#182642]'
                   }`}
                 >
                   <div className="flex items-start gap-4">
                     <div 
-                      className="p-3 rounded-lg flex items-center justify-center shrink-0 border transition-transform duration-300 group-hover:scale-110"
+                      className="p-3 rounded-lg flex items-center justify-center shrink-0 border transition-transform duration-300 group-hover:scale-110 shadow-md"
                       style={{
-                        backgroundColor: isActive ? `${item.color}15` : '#070C16',
-                        borderColor: isActive ? item.color : 'rgba(255,255,255,0.1)',
+                        backgroundColor: isActive ? `${item.color}25` : '#18243E',
+                        borderColor: isActive ? item.color : 'rgba(255,255,255,0.15)',
                         color: item.color,
                       }}
                     >
@@ -219,17 +219,17 @@ export default function About() {
 
                     <div className="space-y-1.5 flex-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-tech text-xs tracking-widest text-slate-400">
+                        <span className="font-tech text-xs tracking-widest text-slate-300 font-semibold">
                           {item.number} — {item.subtitle}
                         </span>
-                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'rotate-90 text-[#00F0FF]' : 'text-slate-600'}`} />
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'rotate-90 text-[#00F0FF]' : 'text-slate-400'}`} />
                       </div>
 
                       <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
                         {item.title}
                       </h3>
 
-                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed pt-1">
+                      <p className="text-slate-200 text-xs sm:text-sm leading-relaxed pt-1">
                         {item.description}
                       </p>
 
@@ -241,10 +241,10 @@ export default function About() {
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="pt-3 mt-3 border-t border-white/10 space-y-1.5"
+                            className="pt-3 mt-3 border-t border-slate-700/80 space-y-1.5"
                           >
                             {item.specs.map((spec, sIdx) => (
-                              <div key={sIdx} className="flex items-center gap-2 text-xs font-tech text-slate-300">
+                              <div key={sIdx} className="flex items-center gap-2 text-xs font-tech text-slate-200">
                                 <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
                                 <span>{spec}</span>
                               </div>
