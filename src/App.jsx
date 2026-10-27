@@ -7,6 +7,7 @@ import RoboticsInterface from './components/RoboticsInterface';
 import Registration from './components/Registration';
 import Footer from './components/Footer';
 import CyberBackground from './components/CyberBackground';
+import CyberCursor from './components/CyberCursor';
 import RegistrationModal from './components/RegistrationModal';
 
 export default function App() {
@@ -36,6 +37,9 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-[#00F0FF]/30 selection:text-[#00F0FF]">
+      {/* Cyber Cursor Reticle for desktop */}
+      <CyberCursor />
+
       {/* Ambient Cyber Background (Particles, Glows & Grid) */}
       <CyberBackground />
 

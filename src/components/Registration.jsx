@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, CheckCircle2, Shield, AlertCircle, Copy, Check, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Shield, Copy, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { FESTIVAL_CONFIG } from '../config';
 import { soundManager } from '../utils/audio';
 
@@ -18,9 +19,14 @@ export default function Registration({ onOpenRegisterModal }) {
       id="register" 
       className="relative py-24 md:py-36 bg-[#04060A] border-t border-white/5 overflow-hidden"
     >
-      {/* Dramatic atmospheric radial glows */}
-      <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] rounded-full blur-[180px] pointer-events-none opacity-25"
+      {/* Dramatic atmospheric radial glows with slow pulsing */}
+      <motion.div 
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.35, 0.2],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] rounded-full blur-[180px] pointer-events-none"
         style={{
           background: 'radial-gradient(circle, #00F0FF 0%, #FF6B00 60%, transparent 80%)'
         }}
@@ -28,14 +34,20 @@ export default function Registration({ onOpenRegisterModal }) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Registration Hero Card Container */}
-        <div className="relative rounded-3xl bg-gradient-to-b from-[#090E1C] via-[#060912] to-[#04060A] border border-white/15 p-8 sm:p-12 md:p-16 lg:p-20 text-center overflow-hidden shadow-2xl">
+        {/* Registration Hero Card Container with Framer Motion Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7 }}
+          className="relative rounded-3xl bg-gradient-to-b from-[#090E1C] via-[#060912] to-[#04060A] border border-white/15 p-8 sm:p-12 md:p-16 lg:p-20 text-center overflow-hidden shadow-2xl"
+        >
           
           {/* Subtle Grid overlay */}
           <div className="absolute inset-0 bg-cyber-grid opacity-30 pointer-events-none" />
 
           {/* Top Label */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E172A] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E172A] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-6 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
             <span>03 / YOUR NEXT MOVE</span>
           </div>
 
@@ -52,9 +64,14 @@ export default function Registration({ onOpenRegisterModal }) {
             The arena is waiting. Bring your ideas, challenge your limits, and become part of the engineering frontier.
           </p>
 
-          {/* Primary CTA Button */}
+          {/* Primary CTA Button with Spring Physics */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
+            <motion.button
+              whileHover={{ 
+                scale: 1.06, 
+                boxShadow: '0 0 50px rgba(0, 240, 255, 0.65)',
+              }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => {
                 soundManager.playClick();
                 if (onOpenRegisterModal) {
@@ -64,17 +81,21 @@ export default function Registration({ onOpenRegisterModal }) {
                 }
               }}
               onMouseEnter={() => soundManager.playHover()}
-              className="group relative inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-[#00F0FF] via-[#00D2FF] to-[#0284C7] text-[#05070B] font-display font-black text-sm sm:text-base tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_40px_rgba(0,240,255,0.6)] transform hover:-translate-y-1 active:translate-y-0"
+              className="group relative inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-[#00F0FF] via-[#00D2FF] to-[#0284C7] text-[#05070B] font-display font-black text-sm sm:text-base tracking-wider uppercase transition-all duration-300"
             >
               <span>REGISTER NOW</span>
               <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </button>
+            </motion.button>
           </div>
 
           {/* Secondary Text */}
-          <div className="mt-8 font-tech text-sm sm:text-base tracking-widest uppercase text-[#FF6B00]">
+          <motion.div 
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            className="mt-8 font-tech text-sm sm:text-base tracking-widest uppercase text-[#FF6B00]"
+          >
             Think. Build. Compete. Repeat.
-          </div>
+          </motion.div>
 
           {/* Configurable URL Identifier Notice for Evaluators / Admins */}
           <div className="mt-12 pt-8 border-t border-white/10 max-w-xl mx-auto text-left rounded-xl bg-[#050811]/90 p-4 border border-white/5">
@@ -103,7 +124,7 @@ export default function Registration({ onOpenRegisterModal }) {
             </p>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>

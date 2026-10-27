@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Cpu, Flame, Sparkles, CheckCircle2, ChevronRight, Binary, Crosshair } from 'lucide-react';
-import { FESTIVAL_CONFIG } from '../config';
+import { Cpu, Flame, Sparkles, CheckCircle2, ChevronRight, Binary } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { soundManager } from '../utils/audio';
 
 export default function About() {
@@ -50,9 +50,15 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16 md:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E1626] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4">
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="max-w-3xl mb-16 md:mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E1626] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
             <span>01 / THE VISION</span>
           </div>
 
@@ -66,22 +72,35 @@ export default function About() {
           <p className="mt-6 text-slate-300 text-base sm:text-lg leading-relaxed font-normal">
             ROBOFEST is a celebration of robotics, engineering, and innovation. It brings together curious minds who love building, experimenting, solving problems, and transforming ideas into working technology.
           </p>
-        </div>
+        </motion.div>
 
         {/* 2-Column Engaging Layout: Technical Illustration & Visual Highlights */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
           
           {/* Left: Interactive Technical CAD Blueprint / Robotic Assembly Visual (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col">
-            <div className="relative rounded-2xl border border-white/10 bg-[#090E1A]/90 p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden group">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="lg:col-span-7 flex flex-col"
+          >
+            <div className="relative rounded-2xl border border-white/10 bg-[#090E1A]/90 p-6 sm:p-8 flex-1 flex flex-col justify-between overflow-hidden group shadow-2xl">
               
               {/* Technical Blueprint Grid & HUD markings */}
               <div className="absolute inset-0 bg-cyber-grid opacity-40 pointer-events-none" />
+
+              {/* Dynamic Scanning Laser Bar */}
+              <motion.div 
+                className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-[#00F0FF] to-transparent pointer-events-none opacity-40 shadow-[0_0_10px_#00F0FF]"
+                animate={{ x: [0, 580, 0] }}
+                transition={{ duration: 7, ease: 'easeInOut', repeat: Infinity }}
+              />
               
               {/* Card Header HUD */}
               <div className="flex items-center justify-between pb-4 border-b border-white/10 relative z-10 font-tech text-xs">
                 <div className="flex items-center gap-2 text-[#00F0FF]">
-                  <Binary className="w-4 h-4" />
+                  <Binary className="w-4 h-4 animate-pulse" />
                   <span>CAD_SPEC // UNIT_X86_SYSTEM</span>
                 </div>
                 <div className="text-slate-400">
@@ -100,7 +119,7 @@ export default function About() {
                   <rect x="210" y="80" width="180" height="160" rx="12" fill="#0C1527" stroke="#00F0FF" strokeWidth="2" />
                   <rect x="230" y="100" width="140" height="120" rx="8" fill="#070C16" stroke={highlights[activeTab].color} strokeWidth="1.5" strokeDasharray="3 3" />
                   
-                  {/* Internal Processor / Neural Node */}
+                  {/* Internal Processor / Neural Node with Pulse */}
                   <circle cx="300" cy="160" r="30" fill={highlights[activeTab].color} fillOpacity="0.15" stroke={highlights[activeTab].color} strokeWidth="2" className="animate-pulse" />
                   <circle cx="300" cy="160" r="12" fill={highlights[activeTab].color} />
                   
@@ -151,7 +170,7 @@ export default function About() {
               {/* Bottom Card Footer Status */}
               <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-tech text-slate-400">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: highlights[activeTab].color }} />
+                  <span className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: highlights[activeTab].color }} />
                   <span>SUBSYSTEM STATUS: OPTIMAL</span>
                 </div>
                 <div className="text-[11px] text-slate-500">
@@ -160,16 +179,21 @@ export default function About() {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right: The Three Visual Highlights (5 cols) */}
+          {/* Right: The Three Visual Highlights with Framer Motion Stagger */}
           <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
             {highlights.map((item, index) => {
               const Icon = item.icon;
               const isActive = activeTab === index;
               return (
-                <div
+                <motion.div
                   key={item.number}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: '-40px' }}
+                  transition={{ duration: 0.5, delay: index * 0.12 }}
+                  whileHover={{ scale: 1.02 }}
                   onClick={() => {
                     soundManager.playClick();
                     setActiveTab(index);
@@ -177,13 +201,13 @@ export default function About() {
                   onMouseEnter={() => soundManager.playHover()}
                   className={`cursor-pointer rounded-xl p-5 sm:p-6 transition-all duration-300 border ${
                     isActive
-                      ? 'bg-[#0E1729] border-[#00F0FF]/50 shadow-[0_0_25px_rgba(0,240,255,0.15)] translate-x-1 sm:translate-x-2'
-                      : 'bg-[#0A0F1A]/70 border-white/10 hover:border-white/20 hover:bg-[#0D1525]'
+                      ? 'bg-[#0E1729] border-[#00F0FF]/60 shadow-[0_0_30px_rgba(0,240,255,0.2)]'
+                      : 'bg-[#0A0F1A]/70 border-white/10 hover:border-white/25 hover:bg-[#0D1525]'
                   }`}
                 >
                   <div className="flex items-start gap-4">
                     <div 
-                      className="p-3 rounded-lg flex items-center justify-center shrink-0 border"
+                      className="p-3 rounded-lg flex items-center justify-center shrink-0 border transition-transform duration-300 group-hover:scale-110"
                       style={{
                         backgroundColor: isActive ? `${item.color}15` : '#070C16',
                         borderColor: isActive ? item.color : 'rgba(255,255,255,0.1)',
@@ -198,7 +222,7 @@ export default function About() {
                         <span className="font-tech text-xs tracking-widest text-slate-400">
                           {item.number} — {item.subtitle}
                         </span>
-                        <ChevronRight className={`w-4 h-4 transition-transform ${isActive ? 'rotate-90 text-[#00F0FF]' : 'text-slate-600'}`} />
+                        <ChevronRight className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'rotate-90 text-[#00F0FF]' : 'text-slate-600'}`} />
                       </div>
 
                       <h3 className="font-display font-bold text-xl sm:text-2xl text-white">
@@ -210,19 +234,27 @@ export default function About() {
                       </p>
 
                       {/* Expandable specs when active */}
-                      {isActive && (
-                        <div className="pt-3 mt-3 border-t border-white/10 space-y-1.5 animate-fadeIn">
-                          {item.specs.map((spec, sIdx) => (
-                            <div key={sIdx} className="flex items-center gap-2 text-xs font-tech text-slate-300">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
-                              <span>{spec}</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div 
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="pt-3 mt-3 border-t border-white/10 space-y-1.5"
+                          >
+                            {item.specs.map((spec, sIdx) => (
+                              <div key={sIdx} className="flex items-center gap-2 text-xs font-tech text-slate-300">
+                                <CheckCircle2 className="w-3.5 h-3.5 text-[#00F0FF] shrink-0" />
+                                <span>{spec}</span>
+                              </div>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

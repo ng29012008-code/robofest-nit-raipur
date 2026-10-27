@@ -1,10 +1,36 @@
 import React from 'react';
-import { ArrowDownRight, ArrowUpRight, Terminal, Sparkles } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Terminal, Sparkles, Activity } from 'lucide-react';
+import { motion } from 'framer-motion';
 import HeroVisual from './HeroVisual';
 import { FESTIVAL_CONFIG } from '../config';
 import { soundManager } from '../utils/audio';
 
 export default function Hero({ onOpenRegisterModal }) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 25, filter: 'blur(4px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        type: 'spring',
+        damping: 20,
+        stiffness: 120,
+      },
+    },
+  };
+
   return (
     <section 
       id="hero" 
@@ -15,39 +41,53 @@ export default function Hero({ onOpenRegisterModal }) {
         {/* Asymmetrical Editorial 2-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
-          {/* Left Column: Hero Content & Oversized Typography (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-6 sm:space-y-7">
+          {/* Left Column: Hero Content & Animated Typography (7 cols) */}
+          <motion.div 
+            className="lg:col-span-7 flex flex-col justify-center space-y-6 sm:space-y-7"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             
             {/* Status & Organizer Pill Header */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0D1527] border border-[#00F0FF]/30 text-[#00F0FF] text-[10px] sm:text-xs font-tech tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-pulse" />
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0D1527] border border-[#00F0FF]/30 text-[#00F0FF] text-[10px] sm:text-xs font-tech tracking-wider uppercase shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+                <span className="w-2 h-2 rounded-full bg-[#00F0FF] animate-ping" />
                 <span>ROBOTiX CLUB • NIT RAIPUR PRESENTS</span>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FF6B00]/10 border border-[#FF6B00]/30 text-[#FF6B00] text-[10px] sm:text-xs font-tech tracking-wider uppercase">
-                <Sparkles className="w-3 h-3" />
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FF6B00]/10 border border-[#FF6B00]/30 text-[#FF6B00] text-[10px] sm:text-xs font-tech tracking-wider uppercase shadow-[0_0_15px_rgba(255,107,0,0.15)]"
+              >
+                <Sparkles className="w-3 h-3 animate-spin-slow" />
                 <span>{FESTIVAL_CONFIG.statusLabel}</span>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
-            {/* Main Headline: Oversized, Bold, Visually Dominant, No Overflow */}
-            <div className="space-y-1">
+            {/* Main Headline: Oversized, Bold, Animated */}
+            <motion.div variants={itemVariants} className="space-y-1">
               <h1 className="font-display font-black tracking-tight leading-[0.96] text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl text-white break-words">
                 THE FUTURE <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F0FF] via-[#38BDF8] to-[#FF6B00] drop-shadow-[0_0_35px_rgba(0,240,255,0.35)]">
                   IS ENGINEERED.
                 </span>
               </h1>
-            </div>
+            </motion.div>
 
             {/* Supporting Text */}
-            <p className="text-slate-300 text-sm sm:text-base lg:text-lg font-normal leading-relaxed max-w-xl">
+            <motion.p 
+              variants={itemVariants}
+              className="text-slate-300 text-sm sm:text-base lg:text-lg font-normal leading-relaxed max-w-xl"
+            >
               Where imagination meets intelligence. Build extraordinary machines, challenge conventional thinking, and experience the next frontier of robotics.
-            </p>
+            </motion.p>
 
             {/* Technical Sub-telemetry strip */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-2 pb-2 border-y border-white/10 max-w-lg font-tech text-xs">
+            <motion.div 
+              variants={itemVariants}
+              className="grid grid-cols-3 gap-2 sm:gap-3 pt-2 pb-2 border-y border-white/10 max-w-lg font-tech text-xs"
+            >
               <div className="space-y-0.5">
                 <div className="text-slate-500 text-[9px] sm:text-[10px] uppercase tracking-wider">// PLATFORM</div>
                 <div className="text-white font-semibold text-[11px] sm:text-xs flex items-center gap-1">
@@ -61,49 +101,58 @@ export default function Hero({ onOpenRegisterModal }) {
               <div className="space-y-0.5 pl-1">
                 <div className="text-slate-500 text-[9px] sm:text-[10px] uppercase tracking-wider">// ENVIRONMENT</div>
                 <div className="text-[#00F0FF] font-semibold text-[11px] sm:text-xs flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]" /> ARENA READY
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF] animate-pulse" /> ARENA READY
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1">
+            {/* CTAs with Framer Motion Springs */}
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-3.5 sm:gap-4 pt-1">
               {/* Primary CTA */}
-              <a
+              <motion.a
                 href="#events"
+                whileHover={{ scale: 1.04, boxShadow: '0 0 35px rgba(0, 240, 255, 0.55)' }}
+                whileTap={{ scale: 0.97 }}
                 onMouseEnter={() => soundManager.playHover()}
                 onClick={() => soundManager.playClick()}
-                className="group relative inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#00F0FF] text-[#05070B] font-display font-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 hover:bg-[#38BDF8] hover:shadow-[0_0_30px_rgba(0,240,255,0.45)] transform hover:-translate-y-0.5"
+                className="group relative inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#00F0FF] text-[#05070B] font-display font-black text-xs sm:text-sm tracking-wider uppercase transition-colors duration-200"
               >
                 <span>EXPLORE EVENTS</span>
                 <ArrowDownRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform" />
-              </a>
+              </motion.a>
 
               {/* Secondary CTA */}
-              <a
+              <motion.a
                 href="#interface"
+                whileHover={{ scale: 1.04, borderColor: '#00F0FF', backgroundColor: 'rgba(20, 32, 59, 0.9)' }}
+                whileTap={{ scale: 0.97 }}
                 onMouseEnter={() => soundManager.playHover()}
                 onClick={() => soundManager.playClick()}
-                className="group inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 rounded-xl bg-[#0D1527] hover:bg-[#14203B] text-white border border-[#00F0FF]/30 hover:border-[#00F0FF] font-display font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] transform hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[#0D1527] text-white border border-[#00F0FF]/30 font-display font-bold text-xs sm:text-sm tracking-wider uppercase transition-colors duration-200"
               >
                 <span>ENTER THE ARENA</span>
                 <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF6B00] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
           {/* Right Column: Hero Futuristic Robotics Visual (5 cols) */}
-          <div className="lg:col-span-5 w-full">
+          <motion.div 
+            className="lg:col-span-5 w-full"
+            initial={{ opacity: 0, scale: 0.92, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          >
             <HeroVisual />
-          </div>
+          </motion.div>
 
         </div>
 
       </div>
 
-      {/* Decorative Bottom Boundary Divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF]/30 to-transparent" />
+      {/* Decorative Bottom Boundary Divider with animated light glow */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#00F0FF]/40 to-transparent" />
     </section>
   );
 }

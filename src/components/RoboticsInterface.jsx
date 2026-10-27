@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Power, Terminal, Cpu, Activity, Zap, RefreshCw, Radio, Gauge, Eye, ShieldCheck, AlertCircle } from 'lucide-react';
+import React, { useState } from 'react';
+import { Power, Terminal, Cpu, Activity, Zap, Radio, Gauge, Eye, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { soundManager } from '../utils/audio';
 
 export default function RoboticsInterface() {
@@ -16,7 +17,6 @@ export default function RoboticsInterface() {
 
   const handleInitialize = () => {
     if (isOnline) {
-      // Toggle back to standby
       soundManager.playClick();
       setSystemState('STANDBY');
       setPowerLevel(35);
@@ -36,7 +36,7 @@ export default function RoboticsInterface() {
       ...prev,
     ]);
 
-    // Simulated staggered boot sequence
+    // Simulated staggered boot sequence with sound
     setTimeout(() => {
       soundManager.playSystemBoot();
       setSystemState('SYSTEM ONLINE');
@@ -46,7 +46,7 @@ export default function RoboticsInterface() {
         { id: Date.now(), time: '00:00:04', text: 'TELEMETRY_LINK: 2.4GHz low-latency telemetry locked at 1.2ms.' },
         ...prev.slice(0, 6),
       ]);
-    }, 1400);
+    }, 1200);
   };
 
   const subsystems = [
@@ -61,15 +61,21 @@ export default function RoboticsInterface() {
       id="interface" 
       className="relative py-24 md:py-36 bg-[#05070B] border-t border-white/5 overflow-hidden"
     >
-      {/* Background glow and grid */}
+      {/* Background glow and dots */}
       <div className="absolute inset-0 bg-cyber-dots opacity-30 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#00F0FF]/5 rounded-full blur-[180px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E1626] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4">
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-16 sm:mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#0E1626] border border-[#00F0FF]/30 text-[#00F0FF] font-tech text-xs tracking-widest uppercase mb-4 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
             <span>INTERACTIVE TESTBED // FRONTEND SIMULATION</span>
           </div>
 
@@ -86,22 +92,35 @@ export default function RoboticsInterface() {
           <div className="mt-2 text-xs font-tech text-slate-500">
             * Frontend-only simulation for demonstration and conceptual exploration.
           </div>
-        </div>
+        </motion.div>
 
         {/* Futuristic Control Console Dashboard */}
-        <div className="rounded-2xl border border-white/15 bg-[#090E1A]/95 backdrop-blur-xl shadow-2xl overflow-hidden p-6 sm:p-8 lg:p-10">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.7 }}
+          className="rounded-2xl border border-white/15 bg-[#090E1A]/95 backdrop-blur-xl shadow-2xl overflow-hidden p-6 sm:p-8 lg:p-10"
+        >
           
           {/* Top Console Status Bar */}
           <div className="flex flex-wrap items-center justify-between pb-6 border-b border-white/10 gap-4">
             
             {/* System Status Pill */}
             <div className="flex items-center gap-3">
-              <div 
-                className={`w-3.5 h-3.5 rounded-full transition-all duration-300 ${
+              <motion.div 
+                animate={{
+                  scale: isOnline ? [1, 1.25, 1] : 1,
+                  boxShadow: isOnline 
+                    ? ['0 0 10px #00F0FF', '0 0 25px #00F0FF', '0 0 10px #00F0FF']
+                    : 'none',
+                }}
+                transition={{ duration: 1.5, repeat: isOnline ? Infinity : 0 }}
+                className={`w-3.5 h-3.5 rounded-full transition-colors duration-300 ${
                   isOnline 
-                    ? 'bg-[#00F0FF] shadow-[0_0_15px_#00F0FF] animate-pulse' 
+                    ? 'bg-[#00F0FF]' 
                     : isInitializing
-                    ? 'bg-[#FF6B00] shadow-[0_0_15px_#FF6B00] animate-ping'
+                    ? 'bg-[#FF6B00] animate-ping'
                     : 'bg-slate-600'
                 }`} 
               />
@@ -117,8 +136,26 @@ export default function RoboticsInterface() {
               </div>
             </div>
 
-            {/* Quick Metrics Bar */}
+            {/* Quick Metrics Bar with Visualizer Equalizer */}
             <div className="flex items-center gap-6 font-tech text-xs">
+              {/* Animated Audio/Frequency Equalizer Bars */}
+              <div className="hidden md:flex items-center gap-1 h-5 px-2 py-1 rounded bg-[#060A14] border border-white/10">
+                {[0.4, 0.8, 0.5, 0.9, 0.3, 0.7].map((height, i) => (
+                  <motion.div
+                    key={i}
+                    className="w-1 bg-[#00F0FF] rounded-full"
+                    animate={{
+                      height: isOnline ? [4, 16 * height, 6] : 4,
+                    }}
+                    transition={{
+                      duration: 0.6 + i * 0.1,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                    }}
+                  />
+                ))}
+              </div>
+
               <div className="hidden sm:flex flex-col">
                 <span className="text-slate-500 uppercase text-[10px]">POWER BUS</span>
                 <span className="text-white font-bold">{powerLevel}% LOAD</span>
@@ -138,31 +175,33 @@ export default function RoboticsInterface() {
             </div>
 
             {/* Primary Action Button: "INITIALIZE SYSTEM" */}
-            <button
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               onClick={handleInitialize}
               onMouseEnter={() => soundManager.playHover()}
               disabled={isInitializing}
               type="button"
-              className={`relative inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-display font-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 transform active:scale-95 ${
+              className={`relative inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-display font-black text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 ${
                 isOnline
-                  ? 'bg-[#0E1729] text-[#00F0FF] border border-[#00F0FF] hover:bg-[#00F0FF]/15 shadow-[0_0_20px_rgba(0,240,255,0.2)]'
+                  ? 'bg-[#0E1729] text-[#00F0FF] border border-[#00F0FF] shadow-[0_0_20px_rgba(0,240,255,0.25)]'
                   : isInitializing
                   ? 'bg-[#FF6B00]/20 text-[#FF6B00] border border-[#FF6B00] cursor-wait'
-                  : 'bg-gradient-to-r from-[#00F0FF] to-[#0284C7] text-[#05070B] hover:shadow-[0_0_30px_rgba(0,240,255,0.45)] hover:-translate-y-0.5'
+                  : 'bg-gradient-to-r from-[#00F0FF] to-[#0284C7] text-[#05070B] shadow-[0_0_25px_rgba(0,240,255,0.4)]'
               }`}
             >
               <Power className={`w-4 h-4 ${isInitializing ? 'animate-spin' : ''}`} />
               <span>
                 {isOnline ? 'DEACTIVATE CONSOLE' : isInitializing ? 'BOOTING MATRIX...' : 'INITIALIZE SYSTEM'}
               </span>
-            </button>
+            </motion.button>
 
           </div>
 
           {/* Main Console Centerpiece: 2-Column Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 my-8 items-center">
             
-            {/* Left: Central Robotic HUD Technical Illustration (7 cols) */}
+            {/* Left: Central Robotic HUD Technical Visualizer (7 cols) */}
             <div className="lg:col-span-7 rounded-xl bg-[#060A14] border border-white/10 p-5 sm:p-6 relative overflow-hidden flex flex-col items-center justify-center min-h-[320px]">
               
               {/* Scanline Effect */}
@@ -170,31 +209,35 @@ export default function RoboticsInterface() {
 
               {/* Dynamic Radial Visualizer */}
               <div className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
-                {/* Outer Ring */}
-                <div 
-                  className={`absolute inset-0 rounded-full border border-dashed transition-all duration-700 ${
-                    isOnline ? 'border-[#00F0FF]/60 animate-spin-slow' : 'border-white/10'
-                  }`} 
+                {/* Outer Ring with Continuous Rotation */}
+                <motion.div 
+                  className="absolute inset-0 rounded-full border border-dashed border-[#00F0FF]/40"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
                 />
 
-                {/* Inner Ring */}
-                <div 
-                  className={`absolute inset-6 rounded-full border transition-all duration-700 ${
-                    isOnline ? 'border-[#FF6B00]/50 animate-pulse' : 'border-white/10'
-                  }`} 
+                {/* Inner Counter-Rotating Ring */}
+                <motion.div 
+                  className="absolute inset-6 rounded-full border border-[#FF6B00]/30"
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
                 />
 
                 {/* Center Schematic Node */}
                 <div className="relative z-10 flex flex-col items-center justify-center text-center p-4">
-                  <div 
-                    className={`w-20 h-20 rounded-2xl flex items-center justify-center border transition-all duration-500 ${
+                  <motion.div 
+                    animate={{
+                      scale: isOnline ? [1, 1.08, 1] : 1,
+                    }}
+                    transition={{ duration: 2, repeat: isOnline ? Infinity : 0 }}
+                    className={`w-20 h-20 rounded-2xl flex items-center justify-center border transition-colors duration-500 ${
                       isOnline 
-                        ? 'bg-[#00F0FF]/15 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_30px_rgba(0,240,255,0.3)]' 
+                        ? 'bg-[#00F0FF]/15 border-[#00F0FF] text-[#00F0FF] shadow-[0_0_30px_rgba(0,240,255,0.4)]' 
                         : 'bg-[#0A0F1A] border-white/15 text-slate-500'
                     }`}
                   >
-                    <Cpu className={`w-10 h-10 transition-transform ${isOnline ? 'scale-110' : 'scale-90'}`} />
-                  </div>
+                    <Cpu className="w-10 h-10" />
+                  </motion.div>
 
                   <span className="mt-3 font-tech text-xs text-white font-bold tracking-wider">
                     {isOnline ? 'ROBOTIC TELEMETRY ACTIVE' : 'SYSTEM STANDBY'}
@@ -211,22 +254,24 @@ export default function RoboticsInterface() {
                 <div className="absolute bottom-2 right-2 text-[#00F0FF]/40 font-mono text-[9px]">48V DC</div>
               </div>
 
-              {/* Subsystem Toggles below canvas */}
+              {/* Subsystem Toggles below visualizer */}
               <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-2 mt-6 pt-4 border-t border-white/10">
                 {subsystems.map((sub) => {
                   const Icon = sub.icon;
                   const isCurrent = activeSubsystem === sub.id;
                   return (
-                    <button
+                    <motion.button
                       key={sub.id}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => {
                         soundManager.playClick();
                         setActiveSubsystem(sub.id);
                       }}
                       onMouseEnter={() => soundManager.playHover()}
-                      className={`p-2.5 rounded-lg border text-left transition-all ${
+                      className={`p-2.5 rounded-lg border text-left transition-all duration-200 ${
                         isCurrent 
-                          ? 'bg-[#0F1A30] border-[#00F0FF] text-white shadow-[0_0_15px_rgba(0,240,255,0.15)]'
+                          ? 'bg-[#0F1A30] border-[#00F0FF] text-white shadow-[0_0_15px_rgba(0,240,255,0.2)]'
                           : 'bg-[#0A0F1A] border-white/10 text-slate-400 hover:border-white/25 hover:text-slate-200'
                       }`}
                     >
@@ -237,7 +282,7 @@ export default function RoboticsInterface() {
                       <div className="text-[10px] font-tech text-slate-400 mt-1 truncate">
                         {sub.stat}
                       </div>
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
@@ -248,27 +293,36 @@ export default function RoboticsInterface() {
             <div className="lg:col-span-5 flex flex-col space-y-4">
               <div className="flex items-center justify-between font-tech text-xs text-slate-400">
                 <div className="flex items-center gap-2 text-[#00F0FF]">
-                  <Terminal className="w-4 h-4" />
+                  <Terminal className="w-4 h-4 animate-pulse" />
                   <span>LIVE_DIAGNOSTIC_FEED</span>
                 </div>
-                <span className="text-[10px] text-slate-500">AUTO_REFRESH</span>
+                <span className="text-[10px] text-slate-500">AUTO_STREAM</span>
               </div>
 
               {/* Terminal Log Console */}
               <div className="rounded-xl bg-[#04070E] border border-white/10 p-4 font-tech text-xs space-y-2 h-[260px] overflow-y-auto">
                 {logs.map((log) => (
-                  <div key={log.id} className="leading-relaxed flex gap-2">
+                  <motion.div 
+                    key={log.id} 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="leading-relaxed flex gap-2"
+                  >
                     <span className="text-slate-600 select-none">[{log.time}]</span>
-                    <span className={log.text.includes('ONLINE') ? 'text-emerald-400' : log.text.includes('STANDBY') ? 'text-slate-400' : 'text-[#00F0FF]'}>
+                    <span className={log.text.includes('ONLINE') ? 'text-emerald-400 font-bold' : log.text.includes('STANDBY') ? 'text-slate-400' : 'text-[#00F0FF]'}>
                       {log.text}
                     </span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               {/* Status Indicators Strip */}
               <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="p-3 rounded-xl bg-[#080E1A] border border-white/10 flex items-center justify-between">
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="p-3 rounded-xl bg-[#080E1A] border border-white/10 flex items-center justify-between"
+                >
                   <div className="flex flex-col">
                     <span className="font-tech text-[10px] text-slate-400">SENSOR MESH</span>
                     <span className="font-tech text-xs font-bold text-white">
@@ -276,9 +330,12 @@ export default function RoboticsInterface() {
                     </span>
                   </div>
                   <ShieldCheck className={`w-5 h-5 ${isOnline ? 'text-[#00F0FF]' : 'text-slate-600'}`} />
-                </div>
+                </motion.div>
 
-                <div className="p-3 rounded-xl bg-[#080E1A] border border-white/10 flex items-center justify-between">
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="p-3 rounded-xl bg-[#080E1A] border border-white/10 flex items-center justify-between"
+                >
                   <div className="flex flex-col">
                     <span className="font-tech text-[10px] text-slate-400">PWM OVERDRIVE</span>
                     <span className="font-tech text-xs font-bold text-white">
@@ -286,7 +343,7 @@ export default function RoboticsInterface() {
                     </span>
                   </div>
                   <Gauge className={`w-5 h-5 ${isOnline ? 'text-[#FF6B00]' : 'text-slate-600'}`} />
-                </div>
+                </motion.div>
               </div>
 
             </div>
@@ -299,7 +356,7 @@ export default function RoboticsInterface() {
             <span>SIMULATION_ID: RF-NITRR-04</span>
           </div>
 
-        </div>
+        </motion.div>
 
       </div>
     </section>
